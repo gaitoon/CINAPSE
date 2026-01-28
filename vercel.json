@@ -4,44 +4,12 @@
     {
       "src": "server.js",
       "use": "@vercel/node"
-    },
-    {
-      "src": "index.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "*.png",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "*.jpg",
-      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
-      "src": "/api/recommend",
+      "src": "/api/(.*)",
       "dest": "server.js"
-    },
-    {
-      "src": "/api/archive",
-      "dest": "server.js"
-    },
-    {
-      "src": "/api/news",
-      "dest": "server.js"
-    },
-    {
-      "src": "/api/trivia",
-      "dest": "server.js"
-    },
-    {
-      "src": "/api/search-by-country",
-      "dest": "server.js"
-    },
-    {
-      "src": "/(.*\\.(png|jpg|jpeg|gif|svg|ico))",
-      "dest": "/$1"
     },
     {
       "src": "/(.*)",
