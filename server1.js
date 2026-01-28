@@ -1197,16 +1197,16 @@ function generateQuestions(details, credits, images, count, difficulty) {
   return questions;
 }
 
-// ADD these new helper functions at the end of server1.js (before app.listen):
-app.listen(PORT, () => {
-  console.log(`🔥 UNIFIED Server - http://localhost:${PORT}`);
-  console.log(`✅ Movies: TMDB Discovery with randomization`);
-  console.log(`✅ Series: TMDB Discovery with randomization`);
-  console.log(`✅ Music: TMDB Music Discovery with randomization`);
-  console.log(`🧬 All use the SAME intelligent algorithm!`);
-}).on('error', (err) => {
-  console.error('❌ Server failed to start:', err);
-  if (err.code === 'EADDRINUSE') {
-    console.log('Port 3001 is already in use!');
-  }
-});
+// For Vercel serverless functions
+module.exports = app;
+
+// For local development only
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`🔥 UNIFIED Server - http://localhost:${PORT}`);
+    console.log(`✅ Movies: TMDB Discovery with randomization`);
+    console.log(`✅ Series: TMDB Discovery with randomization`);
+    console.log(`✅ Music: TMDB Music Discovery with randomization`);
+    console.log(`🧬 All use the SAME intelligent algorithm!`);
+  });
+}
