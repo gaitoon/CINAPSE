@@ -1,0 +1,35 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/recommend",
+      "dest": "server.js"
+    },
+    {
+      "src": "/archive",
+      "dest": "server.js"
+    },
+    {
+      "src": "/news",
+      "dest": "server.js"
+    },
+    {
+      "src": "/trivia",
+      "dest": "server.js"
+    },
+    {
+      "src": "/search-by-country",
+      "dest": "server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
